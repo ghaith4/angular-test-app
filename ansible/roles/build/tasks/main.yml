@@ -1,4 +1,4 @@
 ---
 #buid project
 - name: build app
-  shell: npm run ng build
+  shell: ng build
