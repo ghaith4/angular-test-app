@@ -7,7 +7,7 @@ pipeline
                     script{
                         checkout([$class: 'GitSCM', branches: [[name: '*/main']],
                             userRemoteConfigs: [[
-                                credentialsId: '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',
+                                credentialsId: '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',
                                 url: 'https://github.com/ghaith4/angular-test-app.git'
                             ]]]
                         )
