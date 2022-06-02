@@ -1,17 +1,15 @@
 pipeline
 {
     agent any 
-    tools {
-        nodejs "node",
-        docker "docker"
-        }
+    tools {nodejs "node"}
+    tools {docker "docker"}
         stages {
             stage('Pull'){
                 steps{
                     script{
                         checkout([$class: 'GitSCM', branches: [[name: '*/main']],
                             userRemoteConfigs: [[
-                                credentialsId: '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',
+                                credentialsId: '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',
                                 url: 'https://github.com/ghaith4/angular-test-app.git'
                             ]]]
                         )
