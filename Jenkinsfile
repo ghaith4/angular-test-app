@@ -8,7 +8,7 @@ pipeline
                     script{
                         checkout([$class: 'GitSCM', branches: [[name: '*/main']],
                             userRemoteConfigs: [[
-                                credentialsId: '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',
+                                credentialsId: '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',
                                 url: 'https://github.com/ghaith4/angular-test-app.git'
                             ]]]
                         )
@@ -18,8 +18,8 @@ pipeline
             stage('Build'){
                 steps{
                     script{
-                        sh "ansible-playbook ansible/build.yml -i ansible/inventory/host.ini"
                         sh "npm install"
+                        sh "ansible-playbook ansible/build.yml -i ansible/inventory/host.ini"
                     }
                 }
             }
