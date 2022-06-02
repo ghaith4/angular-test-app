@@ -1,4 +1,4 @@
 ---
 #buid project
 - name: build app
-  shell: ng build
+  shell: npx ng build
