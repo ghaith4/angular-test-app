@@ -2,7 +2,7 @@
 # tasks file for docker-registry
 - name: Tag and push to docker hub
   community.docker.docker_image:
-    name: devops:latest
-    repository: ghaith4/angular-app
+    name: devops
+    repository: ghaith4/angular-app:latest
     push: yes
     source: local
