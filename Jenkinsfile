@@ -8,7 +8,7 @@ pipeline
                     script{
                         checkout([$class: 'GitSCM', branches: [[name: '*/main']],
                             userRemoteConfigs: [[
-                                credentialsId: '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',
+                                credentialsId: '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',
                                 url: 'https://github.com/ghaith4/angular-test-app.git'
                             ]]]
                         )
@@ -23,10 +23,17 @@ pipeline
                     }
                 }
             }
-            stage('Docker'){
+            stage('Create Docker Image'){
                 steps{
                     script{
                         sh "ansible-playbook ansible/docker.yml -i ansible/inventory/host.ini"
+                    }
+                }
+            }
+            stage('Push Image to Docker Hub'){
+                steps{
+                    script{
+                        sh "ansible-playbook ansible/docker-registry.yml -i ansible/inventory/host.ini"
                     }
                 }
             }
