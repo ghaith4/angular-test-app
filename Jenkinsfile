@@ -1,17 +1,14 @@
 pipeline
 {
     agent any 
-    tools {
-        nodejs "node"
-        dockerTool "docker"
-        }
+    tools {nodejs "node"}
         stages {
             stage('Pull'){
                 steps{
                     script{
                         checkout([$class: 'GitSCM', branches: [[name: '*/main']],
                             userRemoteConfigs: [[
-                                credentialsId: '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',
+                                credentialsId: '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',
                                 url: 'https://github.com/ghaith4/angular-test-app.git'
                             ]]]
                         )
@@ -29,7 +26,6 @@ pipeline
             stage('Docker'){
                 steps{
                     script{
-                        sh "pip install docker"
                         sh "ansible-playbook ansible/docker.yml -i ansible/inventory/host.ini"
                     }
                 }
